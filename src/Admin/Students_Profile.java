@@ -35,7 +35,7 @@ public class Students_Profile extends javax.swing.JInternalFrame {
     /**
      * Creates new form Profiles
      */
-    public Students_Profile() {
+    public Students_Profile(Integer id) {
         initComponents();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui=(BasicInternalFrameUI)this.getUI();
@@ -47,41 +47,27 @@ public class Students_Profile extends javax.swing.JInternalFrame {
         
         this.setSize(1200,800);
         
-        displayTable();
-        setDepartment();
-        
-        
-    }
-    
-    public void tableClick(){
-       
-    }
-    
-    public void displayTable(){
-       
-    }
-    
-    
-    public void setDepartment(){   
-        
-       
-       
-        
-    }
-    
-     public void displayStudent(){
-        
-    }
+        setDetails(id);
      
-     
-   
-     
-     
+        
+    }
     
-    
-    public void clear(){
+    public void setDetails(Integer id){
+        try {
+            String sql="SELECT * FROM users WHERE id=?";
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setInt(1, id);
+            ResultSet rs=pst.executeQuery();
             
+            if (rs.next()) {
+                stu_id.setText(rs.getString("user_id"));
+                stu_password.setText(rs.getString("password"));
+            }
             
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -100,9 +86,9 @@ public class Students_Profile extends javax.swing.JInternalFrame {
         jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        course_title = new javax.swing.JTextField();
+        stu_id = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        stu_password = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -137,17 +123,17 @@ public class Students_Profile extends javax.swing.JInternalFrame {
 
         jLabel11.setText("User Id");
 
-        course_title.addActionListener(new java.awt.event.ActionListener() {
+        stu_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                course_titleActionPerformed(evt);
+                stu_idActionPerformed(evt);
             }
         });
 
         jLabel12.setText("Password");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        stu_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                stu_passwordActionPerformed(evt);
             }
         });
 
@@ -162,12 +148,12 @@ public class Students_Profile extends javax.swing.JInternalFrame {
                     .addComponent(jLabel11))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(course_title, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stu_id, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton7)
                         .addGap(18, 18, 18)
                         .addComponent(jButton9))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stu_password, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(672, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -176,11 +162,11 @@ public class Students_Profile extends javax.swing.JInternalFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(course_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stu_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stu_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
@@ -197,25 +183,24 @@ public class Students_Profile extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void course_titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_titleActionPerformed
+    private void stu_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_idActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_course_titleActionPerformed
+    }//GEN-LAST:event_stu_idActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        clear();
+        //clear();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
             
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void stu_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_stu_passwordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField course_title;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel11;
@@ -223,8 +208,9 @@ public class Students_Profile extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField stu_id;
+    private javax.swing.JTextField stu_password;
     // End of variables declaration//GEN-END:variables
 
         
