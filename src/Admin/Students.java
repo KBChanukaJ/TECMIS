@@ -55,6 +55,7 @@ public class Students extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton7.setBackground(new java.awt.Color(0, 0, 102));
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Profile");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +64,7 @@ public class Students extends javax.swing.JFrame {
         });
 
         jButton9.setBackground(new java.awt.Color(0, 0, 102));
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Attendents");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +73,7 @@ public class Students extends javax.swing.JFrame {
         });
 
         jButton10.setBackground(new java.awt.Color(0, 0, 102));
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Medicals");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +82,7 @@ public class Students extends javax.swing.JFrame {
         });
 
         jButton11.setBackground(new java.awt.Color(0, 0, 102));
+        jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Course");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +91,7 @@ public class Students extends javax.swing.JFrame {
         });
 
         jButton12.setBackground(new java.awt.Color(0, 0, 102));
+        jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setText("Grade & GPA");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +100,7 @@ public class Students extends javax.swing.JFrame {
         });
 
         jButton13.setBackground(new java.awt.Color(0, 0, 102));
+        jButton13.setForeground(new java.awt.Color(255, 255, 255));
         jButton13.setText("Time Table");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +109,7 @@ public class Students extends javax.swing.JFrame {
         });
 
         jButton14.setBackground(new java.awt.Color(0, 0, 102));
+        jButton14.setForeground(new java.awt.Color(255, 255, 255));
         jButton14.setText("Notices");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
