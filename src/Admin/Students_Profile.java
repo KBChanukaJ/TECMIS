@@ -62,6 +62,9 @@ public class Students_Profile extends javax.swing.JInternalFrame {
             if (rs.next()) {
                 stu_id.setText(rs.getString("user_id"));
                 stu_password.setText(rs.getString("password"));
+                stu_email.setText(rs.getString("email"));
+                stu_phone.setText(rs.getString("contact"));
+                stu_address.setText(rs.getString("address"));
             }
             
            
@@ -86,9 +89,16 @@ public class Students_Profile extends javax.swing.JInternalFrame {
         jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        stu_id = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        stu_password = new javax.swing.JTextField();
+        stu_id = new javax.swing.JLabel();
+        stu_password = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        stu_email = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        stu_address = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        stu_phone = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -123,19 +133,21 @@ public class Students_Profile extends javax.swing.JInternalFrame {
 
         jLabel11.setText("User Id");
 
-        stu_id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stu_idActionPerformed(evt);
-            }
-        });
-
         jLabel12.setText("Password");
 
-        stu_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stu_passwordActionPerformed(evt);
-            }
-        });
+        stu_id.setText("jLabel1");
+
+        stu_password.setText("jLabel1");
+
+        jLabel1.setText("E mail");
+
+        jLabel2.setText("Address");
+
+        stu_address.setColumns(20);
+        stu_address.setRows(5);
+        jScrollPane1.setViewportView(stu_address);
+
+        jLabel3.setText("Phone");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -143,35 +155,59 @@ public class Students_Profile extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(stu_id, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel1))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(stu_id)
+                            .addComponent(stu_password)
+                            .addComponent(stu_email)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton7)
                         .addGap(18, 18, 18)
                         .addComponent(jButton9))
-                    .addComponent(stu_password, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(672, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                            .addComponent(stu_phone))))
+                .addContainerGap(659, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(stu_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stu_id))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(stu_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                    .addComponent(stu_password))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(stu_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(stu_phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jButton9))
-                .addContainerGap(518, Short.MAX_VALUE))
+                .addContainerGap(372, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Profile", jPanel3);
@@ -183,34 +219,35 @@ public class Students_Profile extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void stu_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stu_idActionPerformed
-
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         //clear();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-            
+         String stu_email=this.stu_email.getText();
+         String stu_phone=this.stu_phone.getText();
+         String stu_address=this.stu_address.getText();
     }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void stu_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stu_passwordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField stu_id;
-    private javax.swing.JTextField stu_password;
+    private javax.swing.JTextArea stu_address;
+    private javax.swing.JTextField stu_email;
+    private javax.swing.JLabel stu_id;
+    private javax.swing.JLabel stu_password;
+    private javax.swing.JTextField stu_phone;
     // End of variables declaration//GEN-END:variables
 
         
