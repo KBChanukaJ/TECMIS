@@ -15,12 +15,20 @@ import javax.swing.UIManager;
  */
 public class Students extends javax.swing.JFrame {
 
-   
+    String dep;
+    String user_id;
+    Integer stu_id;
     /**
      * Creates new form Dashboard
      */
-    public Students() {
+    public Students(Integer id) {
         initComponents();
+        stu_id=id;
+        
+    }
+
+    private Students() {
+        
     }
 
     /**

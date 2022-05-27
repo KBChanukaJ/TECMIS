@@ -138,8 +138,10 @@ public class Login extends javax.swing.JFrame {
                     Lecture lec=new Lecture(department,id,user_id);
                     lec.setVisible(true);
                     this.setVisible(false);
-                }else{
-                   
+                }else if(user_role.equals("Student")){
+                    Students std=new Students(id);
+                    std.setVisible(true);
+                    this.setVisible(false);
                 }
             }else{
                  JOptionPane.showMessageDialog(null, "Username or Password incorrect");
