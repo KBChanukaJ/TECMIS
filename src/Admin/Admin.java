@@ -161,6 +161,10 @@ public class Admin extends User implements AdminImp{
                     Integer contact=rs.getInt("contact");
                     String email=rs.getString("email");
                     String image=rs.getString("image");
+                    String department=rs.getString("department");
+                    String user_id=rs.getString("user_id");
+                    String pwd=rs.getString("password");
+                    String user_role=rs.getString("user_role");
                     
                     Vector row=new Vector();
                     row.add(id);
@@ -173,6 +177,10 @@ public class Admin extends User implements AdminImp{
                     row.add(contact);
                     row.add(email);
                     row.add(image);
+                    row.add(department);
+                    row.add(user_id);
+                    row.add(pwd);
+                    row.add(user_role);
                     this.getData().add(row);
                     
                 }

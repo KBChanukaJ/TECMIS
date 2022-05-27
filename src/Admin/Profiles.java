@@ -21,8 +21,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -186,6 +188,7 @@ public class Profiles extends javax.swing.JInternalFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        search = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -208,7 +211,7 @@ public class Profiles extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Id", "First Name", "Last Name", "DOB", "Gender", "NIC", "Address", "Contact", "E-mail", "Department", "User Id", "Password"
+                "Id", "First Name", "Last Name", "DOB", "Gender", "NIC", "Address", "Contact", "E-mail", "Image", "Department", "User Id", "Password", "User Role"
             }
         ));
         users.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -458,6 +461,12 @@ public class Profiles extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -467,8 +476,10 @@ public class Profiles extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(112, 112, 112))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -476,9 +487,11 @@ public class Profiles extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
         );
 
         jTabbedPane1.addTab("Create User", jPanel3);
@@ -665,6 +678,13 @@ public class Profiles extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_imgPathActionPerformed
 
+    private void searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyPressed
+       DefaultTableModel model=(DefaultTableModel)users.getModel();
+       TableRowSorter <DefaultTableModel>tr=new TableRowSorter<DefaultTableModel>(model);
+       users.setRowSorter(tr);
+       tr.setRowFilter(RowFilter.regexFilter(search.getText().trim()));
+    }//GEN-LAST:event_searchKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Id;
@@ -704,6 +724,7 @@ public class Profiles extends javax.swing.JInternalFrame {
     private javax.swing.JTextField l_name;
     private javax.swing.JTextField nic;
     private javax.swing.JTextField password;
+    private javax.swing.JTextField search;
     private javax.swing.JComboBox<String> user_role;
     private javax.swing.JTable users;
     // End of variables declaration//GEN-END:variables
